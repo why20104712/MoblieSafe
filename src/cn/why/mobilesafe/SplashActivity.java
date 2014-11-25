@@ -16,6 +16,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -69,6 +70,15 @@ public class SplashActivity extends Activity {
 		updateDialog.setTitle("更新提示");
 		// updateDialog.setCancelable(false);//强制更新
 		updateDialog.setMessage("有新版本里，赶紧去下载吧");
+		/**
+		 * 取消更新按钮触发的事件
+		 */
+		updateDialog.setOnCancelListener(new OnCancelListener() {
+			public void onCancel(DialogInterface dialog) {
+				enterHome();
+				dialog.dismiss();
+			}
+		});
 		updateDialog.setPositiveButton("下载更新", new OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
 				// 判断外部存储卡是否已经挂载
@@ -117,11 +127,15 @@ public class SplashActivity extends Activity {
 									startActivity(intent);
 								}
 							});
+				}else {
+					Toast.makeText(getApplicationContext(), "外部sdcard未挂载，请挂载后重试",	0).show();
+					return;
 				}
 			}
 		});
 		updateDialog.setNegativeButton("下次再说", new OnClickListener() {
 			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
 				enterHome();// 进入主页
 			}
 		});
