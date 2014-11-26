@@ -19,6 +19,8 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -30,7 +32,6 @@ import android.os.Message;
 import android.widget.TextView;
 import android.widget.Toast;
 import cn.why.mobilesafe.utils.StreamTools;
-import cn.whymobilesafe.R;
 
 public class SplashActivity extends Activity {
 
@@ -42,9 +43,11 @@ public class SplashActivity extends Activity {
 	private String apkUrl;
 	
 	private TextView downloadProgress;
+	private SharedPreferences sharedPreferences;
 	
 	private Handler handler = new Handler() {
 		public void handleMessage(Message msg) {
+			Editor editor = sharedPreferences.edit();
 			switch (msg.what) {
 			case ENTER_HOME:
 				handler.postDelayed(new Runnable() {
@@ -75,8 +78,8 @@ public class SplashActivity extends Activity {
 		 */
 		updateDialog.setOnCancelListener(new OnCancelListener() {
 			public void onCancel(DialogInterface dialog) {
-				enterHome();
 				dialog.dismiss();
+				enterHome();
 			}
 		});
 		updateDialog.setPositiveButton("下载更新", new OnClickListener() {
@@ -154,8 +157,21 @@ public class SplashActivity extends Activity {
 	 * 初始化view
 	 */
 	private void initView() {
-		// 检查版本信息，是否有新版，有新版本则升级
-		checkUpdate();
+		sharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
+		//查看偏好设置
+		boolean isChecked = sharedPreferences.getBoolean("update", false);
+		if (isChecked) {
+			// 检查版本信息，是否有新版，有新版本则升级
+			checkUpdate();
+		}else {
+			//延迟2秒进入主页
+			handler.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					enterHome();
+				}
+			}, 2000);
+		}
 	}
 
 	/**
@@ -230,7 +246,7 @@ public class SplashActivity extends Activity {
 	 * 进入主页
 	 */
 	protected void enterHome() {
-		Intent intent = new Intent(this, MainActivity.class);
+		Intent intent = new Intent(this, HomeActivity.class);
 		startActivity(intent);
 		finish();
 
