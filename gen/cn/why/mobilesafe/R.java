@@ -240,6 +240,30 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int customNavigationLayout=0x7f010032;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int desc_off=0x7f010070;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int desc_on=0x7f01006f;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int desc_title=0x7f01006e;
         /**  Whether this spinner should mark child views as enabled/disabled when
              the spinner itself is enabled/disabled. 
          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -1217,10 +1241,12 @@ containing a value of this type.
         public static final int abc_simple_decor=0x7f030017;
         public static final int activity_home=0x7f030018;
         public static final int activity_setting=0x7f030019;
-        public static final int grid_view_list_item=0x7f03001a;
-        public static final int setting_item_view=0x7f03001b;
-        public static final int splash_view=0x7f03001c;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001d;
+        public static final int dialog_enter_password=0x7f03001a;
+        public static final int dialog_setup_password=0x7f03001b;
+        public static final int grid_view_list_item=0x7f03001c;
+        public static final int setting_item_view=0x7f03001d;
+        public static final int splash_view=0x7f03001e;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001f;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
@@ -1271,6 +1297,7 @@ containing a value of this type.
         public static final int app_name=0x7f0a000d;
         public static final int hello_world=0x7f0a000e;
         public static final int server_url=0x7f0a0010;
+        public static final int title_activity_lost_find=0x7f0a0012;
         public static final int title_activity_setting=0x7f0a0011;
     }
     public static final class style {
@@ -2217,6 +2244,65 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr name cn.why.mobilesafe:textAllCaps
         */
         public static final int CompatTextView_textAllCaps = 0;
+        /** Attributes that can be used with a CustomSettingAttributes.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #CustomSettingAttributes_desc_off cn.why.mobilesafe:desc_off}</code></td><td></td></tr>
+           <tr><td><code>{@link #CustomSettingAttributes_desc_on cn.why.mobilesafe:desc_on}</code></td><td></td></tr>
+           <tr><td><code>{@link #CustomSettingAttributes_desc_title cn.why.mobilesafe:desc_title}</code></td><td></td></tr>
+           </table>
+           @see #CustomSettingAttributes_desc_off
+           @see #CustomSettingAttributes_desc_on
+           @see #CustomSettingAttributes_desc_title
+         */
+        public static final int[] CustomSettingAttributes = {
+            0x7f01006e, 0x7f01006f, 0x7f010070
+        };
+        /**
+          <p>This symbol is the offset where the {@link cn.why.mobilesafe.R.attr#desc_off}
+          attribute's value can be found in the {@link #CustomSettingAttributes} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name cn.why.mobilesafe:desc_off
+        */
+        public static final int CustomSettingAttributes_desc_off = 2;
+        /**
+          <p>This symbol is the offset where the {@link cn.why.mobilesafe.R.attr#desc_on}
+          attribute's value can be found in the {@link #CustomSettingAttributes} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name cn.why.mobilesafe:desc_on
+        */
+        public static final int CustomSettingAttributes_desc_on = 1;
+        /**
+          <p>This symbol is the offset where the {@link cn.why.mobilesafe.R.attr#desc_title}
+          attribute's value can be found in the {@link #CustomSettingAttributes} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name cn.why.mobilesafe:desc_title
+        */
+        public static final int CustomSettingAttributes_desc_title = 0;
         /** Attributes that can be used with a LinearLayoutICS.
            <p>Includes the following attributes:</p>
            <table>

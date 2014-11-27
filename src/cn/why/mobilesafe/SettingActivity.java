@@ -21,10 +21,8 @@ public class SettingActivity extends Activity {
 		boolean isChecked = sharedPreferences.getBoolean("update", false);
 		if (isChecked) {
 			settingItemUpdate.setChecked(true);
-			settingItemUpdate.setDesc("自动升级已经打开");
 		}else {
 			settingItemUpdate.setChecked(false);
-			settingItemUpdate.setDesc("自动升级已经关闭");
 		}
 		
 		settingItemUpdate.setOnClickListener(new OnClickListener() {
@@ -33,11 +31,9 @@ public class SettingActivity extends Activity {
 				Editor editor = sharedPreferences.edit();
 				if (settingItemUpdate.isChecked()) {
 					settingItemUpdate.setChecked(false);//设置未选中
-					settingItemUpdate.setDesc("自动升级已经关闭");
 					editor.putBoolean("update", false);
 				}else {
 					settingItemUpdate.setChecked(true);//设置选中
-					settingItemUpdate.setDesc("自动升级已经打开");
 					editor.putBoolean("update", true);
 				}
 				editor.commit();//必须提交，否则无法保存偏好设置

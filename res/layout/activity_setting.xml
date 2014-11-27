@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:why="http://schemas.android.com/apk/res/cn.why.mobilesafe"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -15,6 +16,9 @@
         android:textSize="22sp" />
 
     <cn.why.mobilesafe.ui.SettingItemView
+        why:desc_title="设置自动更新"
+        why:desc_on="设置自动更新已经开启"
+        why:desc_off="设置自动更新已经关闭"
         android:id="@+id/setting_item_update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
