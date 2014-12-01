@@ -1,13 +1,12 @@
 package cn.why.mobilesafe.ui;
 
-import cn.why.mobilesafe.R;
-import android.R.bool;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import cn.why.mobilesafe.R;
 
 public class SettingItemView extends RelativeLayout {
 

@@ -1,5 +1,6 @@
 package cn.why.mobilesafe;
 
+import cn.why.mobilesafe.utils.Md5Utils;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -100,7 +101,7 @@ public class HomeActivity extends Activity {
 				}else {
 					//保存密码
 					Editor edit = sharedPreferences.edit();
-					edit.putString("password", pwd);
+					edit.putString("password", Md5Utils.encryptPwd(pwd));//加密数据
 					edit.commit();
 					dialog.dismiss();
 				}
@@ -133,14 +134,15 @@ public class HomeActivity extends Activity {
 					Toast.makeText(HomeActivity.this, "请输入密码", Toast.LENGTH_SHORT).show();
 					return;
 				}
-				if (!pwd.equals(savedPwd)) {
+				if (!Md5Utils.encryptPwd(pwd).equals(savedPwd)) {
 					Toast.makeText(HomeActivity.this, "密码不正确，请重新输入", Toast.LENGTH_SHORT).show();
 					et_enter_pwd.setText("");//清空密码
 					return;
 				}else {
-					//进入防盗页面
-					//。。。
 					dialog.dismiss();
+					//进入防盗页面
+					Intent intent = new Intent(HomeActivity.this,LostFindActivity.class);
+					startActivity(intent);
 				}
 			}
 		});
